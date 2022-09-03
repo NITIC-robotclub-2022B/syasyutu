@@ -30,7 +30,7 @@ int main(void){
 
     while (true) {
 
-        printf("%lf[rpm] pulse:%d MotorDate:%d\n",rpm,pulse,date);
+        printf("%5.2lf[rpm] pulse:%6.0d MotorDate:%d\n",rpm,pulse,date);
 
         if(ps3.getSELECTState()){
             date = 0x80;
@@ -59,6 +59,7 @@ void get_rpm(){
     pulse = encoder.getPulses();
     encoder.reset();
     rpm = (60*20*(double)pulse) / (2048*2) ;
+    
 }
 
 void get_angle(){
